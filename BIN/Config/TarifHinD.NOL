@@ -1,0 +1,14 @@
+;- Loppurivi puolipisteestä on kommenttia.  Tyhjät rivit sallittuja.
+;- Rivien lopussa olevat N:ot tai teksti ei ole tarpeen.
+;- Rivijärjestys oltava tässä esitetty.
+20     Pito/laskenta-aika        Tpit    [a]
+12     Laskentakorko             korko   [%]
+1      Huoltokustannukset        prs     [% invest.kustannuksista]
+2800   Huipun käyttöaika         Tph     [h/a]
+5      Yökulutuksen osuus        YOprs   [%]
+0.3    Tyhjäkäyntivakio          Ktyh
+1      Huipputehon kasvuennuste  dPprs   [%/a]
+2      Energ.hinnan kasvuennuste dWmkprs [%/a]
+5.60   Päiväenergian hinta       PVpen   [snt/kWh] = 33.3 p
+2.24   Yöenergian hinta          YOpen   [snt/kWh] = 13.3 p
+38.85  Tehomaksu                 Pmk     [€/kW/a]  = 231 mk

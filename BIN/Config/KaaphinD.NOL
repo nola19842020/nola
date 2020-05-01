@@ -1,0 +1,69 @@
+;- Yksikköhinnat tässä ovat SSUL 1997 / II,  taso A. Hinnat muutettu euroiksi 31.12.2001 (Ver 5.0.1).
+;- Loppurivi puolipisteestä on kommenttia.  Tyhjät rivit sallittuja.
+;- Rivien lopussa olevat N:ot ei tarpeen.  LAJI:  A=Al  C=Cu.
+;- Vain vakio-mm2 = 1.5-300 + SVjärjestelmästä  300,600,900,1200,2400,3200
+;- j -sarakkeen arvolla (5 tai 4) SAATTAA olla joskus merkitystä <<<<<<<<<<<<
+;- NIMIsar.järjestys oltava sama kuin READ -JÄRJESTYS, nyt Yks.hinnaston järj.
+;- TÄRKEINTÄ: - VIKAN arvorivin JäLK.riville ARVOT=0 =Ilmaisee NIMIryhmäLOPUN.
+;               Oleellisinta on, että mm2=0 !!!
+;             - NIMI -sarakkeen NIMEä saatetaan käyttää tulostuksessa (TYYPPI)
+;             - Jokaista nimiryhmää (MMJ..) kohden tulee olla ainakin päättävä rivi (0 0 ..)
+;mm2   Nimi    Laji  j    OH       KH       KHME     = (€/m  5j jos on. A-taso)
+;--    -----    -    -   ---.--   ---.--   ---.--    --------------------------
+;1.5   MMJs     C    5     1.52     2.55     3.51    1  MMJ ei enää käytössä laskennassa
+;2.5   MMJs     C    5     2.00     3.03     3.99    2  
+;  4   MMJs     C    5     0        0        0       3  
+;  6   MMJs     C    5     4.27     5.35     6.49    4  
+; 10   MMJs     C    5     6.69     7.96     9.30    5  
+; 16   MMJs     C    5     9.72    11.00    12.33    6  
+; 25   MMJs     C    5    16.02    17.64    18.77    7
+;  0   0        0    0     0        0        0          ---------- =Ed.^rivi=VIIM.arvorivi
+1.5    MCMK5    C    5     1.83     1.83     1.83    1  
+2.5    MCMK5    C    5     2.15     3.19     4.24    2  
+  4    MCMK5    C    5     0        0        0       3  
+  6    MCMK5    C    5     3.89     4.97     6.38    4  
+ 10    MCMK5    C    5     5.55     6.82     8.42    5  
+ 16    MCMK5    C    5     8.10     9.38    10.99    6  
+ 25    MCMK4½   C    4    10.22    11.84    12.84    7  
+ 35    MCMK4½   C    5    14.14    15.76    17.17    8  
+ 50    MCMK4½   C    4    17.00    18.67    19.92    9  
+ 70    MCMK4½   C    4    21.58    23.25    24.53    10 
+ 95    MCMK4½   C    4    30.86    32.67    34.20    11 
+120    MCMK4½   C    4    36.13    37.94    40.01    12 
+150    MCMK4½   C    4    51.84    54.15    55.63    13 
+185    MCMK4½   C    4    55.43    57.83    60.56    14 
+240    MCMK4½   C    4    76.19    78.98    82.20    15 
+  0    0        0    0     0        0        0       16
+                                                     17
+ 16    AMCMK5   A    4     3.63     4.91     6.11    18
+ 25    AMCMK4½  A    4     5.12     6.74     7.75    19
+ 35    AMCMK4½  A    5     6.41     8.03     9.13    20
+ 50    AMCMK4½  A    4     8.02     9.69    10.84    21
+ 70    AMCMK4½  A    5     9.71    11.38    12.67    22
+ 95    AMCMK4½  A    4    13.32    15.14    16.67    23
+120    AMCMK4½  A    5    16.17    17.98    20.05    24
+150    AMCMK4½  A    4    18.50    20.90    23.21    25
+185    AMCMK4½  A    5    22.35    24.75    27.48    26
+240    AMCMK4½  A    5    30.37    33.16    36.37    27
+  0    AMCMK4½  0    0     0        0        0       28
+                                                     29
+ 16    AXMKn    A    4     3.22     4.50     4.50    30
+ 25    AXMKn    A    4     4.39     6.01     6.01    31
+ 35    AXMKn    A    4     4.97     6.59     6.59    32
+ 50    AXMKn    A    4     0        0        0          <Tyhjä rivi ajaisi saman asian
+ 70    AXMKn    A    4     7.69     9.69     9.69    34
+ 95    AXMKn    A    4     0        0        0       35
+120    AXMKn    A    4    12.56    14.37    14.37    36
+150    AXMKn    A    4     0        0        0       37
+185    AXMKn    A    4    15.88    18.28    18.28    38
+  0    AXMKn    0    0     0        0        0       39
+
+300    SVjärj.  A   5     49.95    49.95    49.95    41
+600    SVjärj.  A   5     73.67    73.67    73.67    42
+900    SVjärj.  A   5    117.56   117.56   117.56    43
+1200   SVjärj.  A   5    147.50   147.50   147.50    44
+2400   SVjärj.  A   5    230.25   230.25   230.25    45
+3200   SVjärj.  A   5    313.00   313.00   313.00    46
+0      SVjärj.  0   0      0        0        0       47
+
+

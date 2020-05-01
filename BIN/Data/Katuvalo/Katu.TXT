@@ -1,0 +1,53 @@
+Tällä tiedostolla välitetään NOLAlle laskettavan katuvaloverkon tiedot sarakkeissa (1)..13), NOLA laskee 14)..
+Tiedoston käyttö korvaa käyttöliittymän.
+Tiedot tulee siis saattaa laskentatilannetta vastaavaksi ENNEN tiedoston kutsumista ja ne
+voidaan päivittää laskennan välillä. Käytä ASCII-editoria (esim. Notepad).
+Tässä näkyvät TIETOSISÄLLÖN KUVAUS ja selitykset esitetään kaikissa laskentatapauksissa vaikkei niitä olisi tähän avatussa tiedostossa.
+TÄMÄN TIEDOSTON SISÄLLÖN KUVAUS:
+- Otsikkorivien (1) 2)  3)...
+                Riv Ryh Lt...
+                No  Tun ²C...  jälkeen vasta alkavat laskentaparametririvit (RivNo:t 0..), joista
+  RivNo=0 on erikoisrivi, missä välilyönneillä erotettuna:
+     RiviNo (ei pakollinen)  LaskentapisteenNo  Alkujännitealenema
+     esim:  0 0              =Laskennan lähtöpisteenä liittymän jälkeinen JK, alku-Uh%=0 
+- Kukin rivi edustaa omaa johto-osaa esitettynä järjestyksessä VERKON alusta päin.
+- NOLA käsittelee arvoriveinä vain ne rivit, jotka ALKAVAT numerolla '0'...'9' tai desimaalierottimella ',' tai '.'
+SARAKESELITYKSET / Annettavat laskentaparametrit:
+(1,2) Vapaasti annettava rivi- ja ryhmä(tms.)numero. Ei liity laskentaan, on vain visuaalisena apuna rivierottelussa.
+(3)   LT = Johdinresistanssien laskentalämpötila:  Yleensä SÄL 40°C, KUL 80°C.
+(4)   SUOJ.EHD.: (Suoj.ehdon tarkastelutapa) Sähkölaitoksen jakeluverkko (A1) =SÄL,  Kuluttaja-as. (SFS 6000) =KUL.
+(5,6) Tehosarakkeissa (n x P1...P3, esim: 1x26500) tehot on annettava muodossa KPL x P [W], P1 on vaiheelle L1.. jne.
+      NOLA laskee eri pisteiden kokonaistehot (läpimenevät tehot) tehosarakkeista itse.
+(7)   As. tap = Johdon asennustapa (A,C,D=maa).
+(8)   Korj kerr = Johdon asennusolosuhteiden mukainen kuormitettavuuden korjauskerroin.
+(9)   SUL[A] = Valittu sulake [A].
+(10)  SUL typ = Käytettävä sulaketyyppi:  i (tai I) = IEC-Gg  F = OFAA.
+(11)  mm2 = Äärijohtimen poikkipinta. Jos riittämätön, NOLA kasvattaa ja huomauttaa lisämerkillä '<'.
+(12)  NOLA hyväksyy kaapelityyppeinä:
+         AMCMK3½ AMCMK3½½ AMCMK4½ AXMK AXCMK AMMK* APAKM* AMKA AVOJOHal
+         MCMK3½ MCMK3½½ MCMK4½ MMJ/MMK* PLKVJ* AVOJOHcu
+         (A)MCMK tulkitaan (A)MCMK4½:ksi. Ei enää tuotannossa -merkki '*' pitää olla tyypissä mukana.
+(13)  L[m] =Johto-osan pituus [m].
+SARAKESELITYKSET / NOLA laskee:
+(14)  SUL  =Asennustavan korjauskertoimen mukainen max.sulake kaap.tyypin mm2:lle. 0 = As.tapa ei sallittu (esim. AMKA /D).
+(15)  MaxS =Suojausehtojen (KUL=5s / SÄL=2.5x .. 3x) SALLIMA max.sulake, jos SUL>MaxS, käytetään punaista väriä.
+(16)  Seh  =Suojausehdoista (ks. myös MaxS 14) tarkistetaan kosketusjännite Uk ja SÄL:n 2. nollausehto.
+      Uk>50(75) = Uk, edeltä (SÄL)verkosta ei löydy maadoitusta (<200m) = 2, ao. ehto kunnossa = -
+(17)  I1/I2/I3 -sarake = Ao. (L1, L2, L3) vaihevirta.
+(18)  =Yht[kW] =Kaikkien vaiheitten yhteisteho ao. pisteessä. Tämän (ja yhteisQ:n) perusteella uhY%.
+(19) uhY%= Ao. pisteen (3v)uh%, kun kaikien vaiheitten tehot [kW] on summattu kumulatiivisesti.
+
+(1) 2)  3)  4)    5)     6)     7)     6)     7)     6)  7)   8)   9) 10) 11)   12)    13)  14)  15) 16)    17)      =18)      19)=
+Riv Ryh LT SUOJ Pylväs- ja vaihekoht. tehot P[W] ja Cos  As. Korj SUL SUL mm² Tyyppi       |--> NOLA laskee .......................
+No  Tun °C EHD. n x P1  Cos1  n x P2  Cos2  n x P3  Cos3 tap kerr [A] typ              L[m] SUL MaxS Seh I1/I2/I3[A] =Yht[kW] uhY%=
+1 0   =Liittymäpiste  Alku-uh% (erikoisrivi, ks. kuvaus edellä)
+1   5   40 SÄL   3x125  0.65   1x70   0.00   3x70   0.67  d  1.00  50  i  35 AMCMK4½  125
+2   6   40 SÄL   3x70   0.57   3x250  0.68   1x70   0.67  C  1.00  50  i  35 AMKA     260
+3   7   40 SÄL   3x125  0.65   3x400  0.66   3x400  0.67  d  1.00  50  i  25 AMCMK4½  125
+4   8   40 SÄL   3x125  0.65   3x400  0.66   3x400  0.67  d  1.00  50  i 240 AMCMK4½  250
+5   9   40 SÄL   3x125  0.65   3x400  0.66   3x400  0.67  d  1.00 160  i  35 AMCMK4½  250
+6   10  40 SÄL   3x125  0.65   3x400  0.66   3x400  0.67  d  1.00  50  i  35 AMCMK4½  250
+7   11  40 SÄL   3x125  0.65   3x400  0.66   3x400  0.67  d  1.00  50  i  35 AMCMK4½  250
+8   12  40 SÄL   3x125  0.65   3x400  0.66   3x400  0.67  d  1.00  50  i  35 AMCMK4½  250
+9   13  40 SÄL   3x125  0.65   3x400  0.66   3x400  0.67  d  1.00  50  i  35 AMCMK4½  250
+10  14  40 SÄL   3x125  0.65   3x400  0.66   3x400  0.67  d  1.00  50  i  35 AMCMK4½  250
